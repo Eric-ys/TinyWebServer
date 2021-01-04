@@ -217,7 +217,7 @@ int Utils::u_epollfd = 0;
 class Utils;
 void cb_func(client_data *user_data)
 {
-    epoll_ctl(Utils::u_epollfd, EPOLL_CTL_DEL, user_data->sockfd, 0);
+    epoll_ctl(Utils::u_epollfd, EPOLL_CTL_DEL, user_data->sockfd, 0);  //将文件描述符修改为删除事件
     assert(user_data);
     close(user_data->sockfd);
     http_conn::m_user_count--;
